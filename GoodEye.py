@@ -1,7 +1,8 @@
 '''GoodEye - Dickson/Jess/Ryan'''
 
-import pygame, os
+import pygame, os, sys
 from pygame.locals import *
+from sys import exit
 
 pygame.init()
 
@@ -19,6 +20,7 @@ def text_format(message, textFont, textSize, textColor):
     newText=newFont.render(message, 0, textColor)
 
     return newText
+
 
 # Colors
 BLACK = (0,0,0)
@@ -46,7 +48,8 @@ def main_menu():
                     selected="quit"
                 if event.key==pygame.K_RETURN:
                     if selected=="start":
-                        print("Start")
+                        menu = False
+                        game_loop()
                     if selected=="quit":
                         pygame.quit()
                         quit()
@@ -74,7 +77,37 @@ def main_menu():
         pygame.display.update()
         clock.tick(FPS)
 
+def countdown(n):
+    while n > 0:
+        print(n)
+        n = n-1
+    if n == 0:
+        print("Testing")
+
+
+def game_loop():
+    gameExit = False
+    gameOver= False
+
+    while not gameExit:
+        screen.fill(WHITE)
+        pygame.display.update()
+        clock.tick(FPS)
+
+
+
+    countdown(30)
+    pygame.display.update()
+'''
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+        screen.fill(BLACK)
+        pygame.display.update()
+        clock.tick(FPS)'''
 #Initialize the Game
 main_menu()
-pygame.quit()
-quit()
+game_loop()
+#pygame.quit()
+#quit()
