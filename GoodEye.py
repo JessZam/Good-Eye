@@ -26,7 +26,16 @@ def text_format(message, textFont, textSize, textColor):
 BLACK = (0,0,0)
 WHITE = (255,255,255)
 GREEN_YELLOW = (173,255,47)
-
+BLUE = (0, 0, 255)
+GRAY = (197, 197, 197)
+YELLOW = (255, 255, 0)
+GREEN = (128, 255, 128)
+PURPLE = (128, 255, 128)
+RED = (255, 0, 0)
+PINK = (255, 170, 255)
+ORANGE = (255, 128, 64)
+SKY_BLUE = (0, 128, 255)
+NAVY_BLUE = (0, 0, 128)
 font = "freesansbold.ttf"
 
 #------------------------------------------------------------ MAIN MENU --------------------------------------------#
@@ -88,9 +97,20 @@ def countdown(n):
 def game_loop():
     gameExit = False
     gameOver= False
-
+    
     while not gameExit:
         screen.fill(WHITE)
+        pygame.draw.rect(screen, RED, (410, 220, 100, 100))
+        pygame.draw.rect(screen, YELLOW, (410, 340, 100, 100))
+        pygame.draw.rect(screen, YELLOW, (530, 220, 100, 100))
+        pygame.draw.rect(screen, RED, (530, 340, 100, 100))
+        '''pygame.draw.rect(screen, PURPLE, (0, 0, 200, 100))
+            pygame.draw.rect(screen, PINK, (0, 0, 200, 100))
+            pygame.draw.rect(screen, ORANGE, (0, 0, 200, 100))
+            pygame.draw.rect(screen, SKY_BLUE, (0, 0, 200, 100))
+            pygame.draw.rect(screen, NAVY_BLUE, (0, 0, 200, 100))
+            pygame.draw.rect(screen, GRAY, (0, 0, 200, 100))
+            '''
         pygame.display.update()
         clock.tick(FPS)
 
