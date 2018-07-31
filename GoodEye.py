@@ -236,7 +236,7 @@ def game_loop():
 
     initialTimer = 3     # Initial time for game to start
 
-
+    lives = 5
     x = None            # x mouse position
 
     y = None            # y mouse position
@@ -259,6 +259,7 @@ def game_loop():
 
     rects_3 = rects_2 + [(290,460,100,100),(410,460,100,100),(530,460,100,100),(650,460,100,100)]
 
+    rects_4 = rects_3 + [(290,560,100,100),(410,560,100,100),(530,560,100,100),(650,560,100,100)]
 
 
     # Colors
@@ -385,17 +386,49 @@ def game_loop():
 
             collision_3[11] = drawRect(rects_3, found_3, colors_3, temp_3, 11)
 
+        elif level == 4:
 
+            collision_4[0] = drawRect(rects_4, found_4, colors_4, temp_4, 0)
+
+            collision_4[1] = drawRect(rects_4, found_4, colors_4, temp_4, 1)
+
+            collision_4[2] = drawRect(rects_4, found_4, colors_4, temp_4, 2)
+
+            collision_4[3] = drawRect(rects_4, found_4, colors_4, temp_4, 3)
+
+            collision_4[4] = drawRect(rects_4, found_4, colors_4, temp_4, 4)
+
+            collision_4[5] = drawRect(rects_4, found_4, colors_4, temp_4, 5)
+
+            collision_4[6] = drawRect(rects_4, found_4, colors_4, temp_4, 6)
+
+            collision_4[7] = drawRect(rects_4, found_4, colors_4, temp_4, 7)
+
+            collision_4[8] = drawRect(rects_4, found_4, colors_4, temp_4, 8)
+
+            collision_4[9] = drawRect(rects_4, found_4, colors_4, temp_4, 9)
+
+            collision_4[10] = drawRect(rects_4, found_4, colors_4, temp_4, 10)
+
+            collision_4[11] = drawRect(rects_4, found_4, colors_4, temp_4, 11)
+
+            collision_4[12] = drawRect(rects_4, found_4, colors_4, temp_4, 12)
+
+            collision_4[13] = drawRect(rects_4, found_4, colors_4, temp_4, 13)
+
+            collision_4[14] = drawRect(rects_4, found_4, colors_4, temp_4, 14)
+
+            collision_4[15] = drawRect(rects_4, found_4, colors_4, temp_4, 15)
 
         # Timer text
 
-        timerText = text_format(str(initialTimer), font, 60, GREEN_YELLOW)
+        timerText = text_format(str(initialTimer), font, 60, WHITE)
 
 
 
         # Live text
 
-        #livesText = text_format('Lives='+str(lives), font, 60, RED)
+        livesText = text_format('Lives '+str(lives), font, 40, RED)
 
 
 
@@ -421,6 +454,8 @@ def game_loop():
 
                 found_4 = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
 
+                found_5 = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+                          None, None, None, None, None]
 
 
                 # Set temporary to None so that there is no more showing of textures
@@ -433,13 +468,15 @@ def game_loop():
 
                 temp_4 = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
 
+                temp_5 = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+                          None, None, None, None, None]
 
 
 
 
         else:
 
-            #screen.blit(livesText, (400, 50))   # Display lives
+            screen.blit(livesText, (450, 50))   # Display lives
 
 
 
@@ -453,6 +490,8 @@ def game_loop():
 
                 temp_4 = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
 
+                temp_5 = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None,
+                          None, None, None, None, None]
                 clicked = 0
 
 
@@ -517,7 +556,7 @@ def game_loop():
 
                                                 temp_2 = [True, True, True, True, True, True, True, True]
 
-                                                #lives = 5               # Set lives back to 5
+                                                lives = 5               # Set lives back to 5
 
                                                 gameStarts = False
 
@@ -527,7 +566,7 @@ def game_loop():
                                             temp_1 = [None, None, None, None]
 
                                         else:
-                                            #lives -= 1          # Subtract lives
+                                            lives -= 1          # Subtract lives
 
                                             initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
 
@@ -574,6 +613,7 @@ def game_loop():
 
                                                 temp_3 = [True, True, True, True, True, True,True,True,True,True,True,True]
 
+                                                #lives = 5  # Set lives back to 5
                                                 gameStarts = False
 
                                                 initialTimer = 8       # Set timer back to 10
@@ -581,6 +621,10 @@ def game_loop():
                                                 continue            # Jump to next iteration
 
                                             temp_2 = [None, None, None, None,None,None,None,None]
+                                        else:
+                                            lives -= 1          # Subtract lives
+
+                                            initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
 
                     elif level == 3:
 
@@ -631,7 +675,63 @@ def game_loop():
                                                 continue            # Jump to next iteration
 
                                             temp_3 = [None, None, None, None,None,None,None,None,None,None,None,None]
+                                        else:
+                                            lives -= 1          # Subtract lives
 
+                                            initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
+                    elif level == 4:
+
+                        for i,item in enumerate(collision_4):
+
+                            # Check if mouse click occurred inside item
+
+                            if item.collidepoint(event.pos):
+
+                                # If item was not clicked already
+
+                                if found_4[i] != True:
+
+                                    clicked += 1  # Always increase counter of clicks if click valid
+
+                                    temp_4[i] = True        # Temporary record which rectangle was clicked
+
+                                    if clicked == 2:
+
+                                        two_clicks = [i for i,v in enumerate(temp_4) if v is not None]
+
+                                        if two_clicks in wins_4:
+
+                                            for i in two_clicks:
+
+                                                found_4[i] = True
+
+                                            # Find out if win
+
+                                            totalWins = sum([1 for i in found_4 if i is not None])
+
+                                            # Compare total wins to length of possible total wins
+
+                                            if totalWins == len(found_4):
+
+                                                print('Victory')
+
+                                                level = 5
+
+                                                # Reset all values to start on level 4
+
+                                                temp_5 = [True, True, True, True, True, True,True,True,True,True,True,True,True,True,True,True, True, True, True, True]
+
+                                                gameStarts = False
+
+                                                initialTimer = 12       # Set timer back to 10
+
+                                                continue            # Jump to next iteration
+
+                                            temp_4 = [None, None, None, None,None,None,None,None,None,None,None,None, None, None, None, None]
+                                        else:
+                                            lives -= 1          # Subtract lives
+
+                                            initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
         # Reduce timer only if game has not start
 
         if currentTicks == 0:
