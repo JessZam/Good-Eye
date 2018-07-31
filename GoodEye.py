@@ -38,27 +38,25 @@ BLACK = (0,0,0)
 
 WHITE = (255,255,255)
 
-GREEN_YELLOW = (173,255,47)
+GREEN_YELLOW = (124,252,0)
 
 BLUE = (0, 0, 255)
 
 GRAY = (197, 197, 197)
 
-YELLOW = (255, 255, 0)
+YELLOW = (255,255,0)
 
-GREEN = (128, 255, 128)
+LIME = (0, 255, 0)
 
-PURPLE = (128, 255, 128)
+PURPLE = (255, 0, 255)
 
 RED = (255, 0, 0)
 
-PINK = (255, 170, 255)
+PINK = (255, 20, 147)
 
-ORANGE = (255, 128, 64)
+ORANGE = (255, 100, 0)
 
-SKY_BLUE = (0, 128, 255)
-
-NAVY_BLUE = (0, 0, 128)
+CYAN = (0,255,255)
 
 font = "freesansbold.ttf"
 
@@ -266,11 +264,11 @@ def game_loop():
 
     colors_1 = [RED, YELLOW, YELLOW, RED]
 
-    colors_2 = [GREEN_YELLOW,NAVY_BLUE,YELLOW,RED,RED,YELLOW,NAVY_BLUE,GREEN_YELLOW]
+    colors_2 = [GREEN_YELLOW,BLUE,YELLOW,RED,RED,YELLOW,BLUE,GREEN_YELLOW]
 
-    colors_3  = [NAVY_BLUE,GREEN_YELLOW,GREEN_YELLOW,ORANGE,ORANGE,PINK,YELLOW,RED,RED,NAVY_BLUE,YELLOW,PINK]
+    colors_3  = [BLUE,GREEN_YELLOW,GREEN_YELLOW,ORANGE,ORANGE,PINK,YELLOW,RED,RED,BLUE,YELLOW,PINK]
 
-    colors_4 = [RED, YELLOW, YELLOW, RED, NAVY_BLUE, NAVY_BLUE, GREEN_YELLOW, GREEN_YELLOW, SKY_BLUE, SKY_BLUE]
+    colors_4 = [RED, YELLOW, YELLOW, RED, BLUE, BLUE, GREEN_YELLOW, GREEN_YELLOW, CYAN, CYAN]
 
 
 
@@ -613,7 +611,7 @@ def game_loop():
 
                                                 temp_3 = [True, True, True, True, True, True,True,True,True,True,True,True]
 
-                                                #lives = 5  # Set lives back to 5
+                                                lives = 5  # Set lives back to 5
                                                 gameStarts = False
 
                                                 initialTimer = 8       # Set timer back to 10
@@ -765,19 +763,12 @@ def game_loop():
     pygame.display.update()
 
 '''
-
         for event in pygame.event.get():
-
             if event.type == pygame.QUIT:
-
                 pygame.quit()
-
                 exit()
-
         screen.fill(BLACK)
-
         pygame.display.update()
-
         clock.tick(FPS)'''
 
 #Initialize the Game
