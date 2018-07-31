@@ -37,6 +37,9 @@ CYAN = (0,255,255)
 
 font = "freesansbold.ttf"
 
+correct = "Correct.mp3"
+incorrect = "Incorrect.mp3"
+
 #------------------------------------------------------------ MAIN MENU --------------------------------------------#
 
 def main_menu():
@@ -110,6 +113,11 @@ def main_menu():
     game_loop()
 
 # Draws rectangles dynamically, depending on the data passed
+
+def game_over(lives):
+    if lives == 0:
+        pygame.quit()
+
 
 def drawRect(rects, founds, colors, temp, n):
 
@@ -305,6 +313,9 @@ def game_loop():
 
                                             for i in two_clicks:
                                                 found_1[i] = True
+                                                pygame.mixer.music.load(correct)
+                                                pygame.mixer.music.play(0)
+
                                             # Find out if win
                                             totalWins = sum([1 for i in found_1 if i is not None])
                                             # Compare total wins to length of possible total wins
@@ -325,7 +336,9 @@ def game_loop():
 
                                             lives -= 1          # Subtract lives
                                             initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
-
+                                            pygame.mixer.music.load(incorrect)
+                                            pygame.mixer.music.play(0)
+                                            game_over(lives)
                     elif level == 2:
 
                         for i,item in enumerate(collision_2):
@@ -342,6 +355,9 @@ def game_loop():
 
                                             for i in two_clicks:
                                                 found_2[i] = True
+                                                pygame.mixer.music.load(correct)
+                                                pygame.mixer.music.play(0)
+
                                             # Find out if win
                                             totalWins = sum([1 for i in found_2 if i is not None])
                                             # Compare total wins to length of possible total wins
@@ -364,7 +380,9 @@ def game_loop():
 
                                             lives -= 1          # Subtract lives
                                             initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
-
+                                            pygame.mixer.music.load(incorrect)
+                                            pygame.mixer.music.play(0)
+                                            game_over(lives)
                     elif level == 3:
                         for i,item in enumerate(collision_3):
                             # Check if mouse click occurred inside item
@@ -382,6 +400,9 @@ def game_loop():
                                         if two_clicks in wins_3:
                                             for i in two_clicks:
                                                 found_3[i] = True
+                                                pygame.mixer.music.load(correct)
+                                                pygame.mixer.music.play(0)
+
                                             # Find out if win
                                             totalWins = sum([1 for i in found_3 if i is not None])
                                             # Compare total wins to length of possible total wins
@@ -395,17 +416,16 @@ def game_loop():
                                                 initialTimer = 10       # Set timer back to 10
 
                                                 continue            # Jump to next iteration
-                                                screen_width = 1000
-                                                screen_height = 1200
 
                                             temp_3 = [None, None, None, None,None,None,None,None,None,None,None,None]
 
                                         else:
 
                                             lives -= 1          # Subtract lives
-
                                             initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
-
+                                            pygame.mixer.music.load(incorrect)
+                                            pygame.mixer.music.play(0)
+                                            game_over(lives)
                     elif level == 4:
                         for i,item in enumerate(collision_4):
                             # Check if mouse click occurred inside item
@@ -423,6 +443,9 @@ def game_loop():
                                         if two_clicks in wins_4:
                                             for i in two_clicks:
                                                 found_4[i] = True
+                                                pygame.mixer.music.load(correct)
+                                                pygame.mixer.music.play(0)
+
                                             # Find out if win
                                             totalWins = sum([1 for i in found_4 if i is not None])
                                             # Compare total wins to length of possible total wins
@@ -442,6 +465,9 @@ def game_loop():
 
                                             lives -= 1          # Subtract lives
                                             initialTimer = 1    # Set timer to give time to look at different matches (otherwise is instant)
+                                            pygame.mixer.music.load(incorrect)
+                                            pygame.mixer.music.play(0)
+                                            game_over(lives)
 
         # Reduce timer only if game has not start
 
