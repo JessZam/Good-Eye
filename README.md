@@ -14,6 +14,7 @@ Within the game itself the user should allow roughly 1 second in between guesses
 Libraries:
 
 Third party - pygame
+
 Build-in  - os ,sys
 
 
@@ -25,6 +26,9 @@ https://freesound.org/people/LittleRainySeasons/sounds/335908/
 Free website to download sound clips:
 Incorrect.mp3
 Correct.mp3
+
+For the implementation of the start menu some code was obtained from:
+https://pythonprogramming.net/pygame-start-menu-tutorial/
 
 
 Extra features: 
